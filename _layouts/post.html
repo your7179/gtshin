@@ -2,7 +2,7 @@
 layout: default
 ---
 {% include breadcrumb.html %}
-{%- assign post_cat = site.data.categories | where: "name", page.category | first %}
+{% include post-cat.html %}
 <article class="article">
   <header class="article-header">
     <div class="article-labels">
@@ -41,7 +41,8 @@ layout: default
   {% include author-box.html %}
 
   {%- if post_cat %}
-  {%- assign same = site.guides | where: "category", page.category | sort: "no" %}
+  {% include cat-posts.html cat=post_cat %}
+  {%- assign same = cat_posts | sort: "no" %}
   {%- if same.size > 1 %}
   <section class="more-posts">
     <h2 class="more-posts-title">「{{ post_cat.name }}」の記事</h2>

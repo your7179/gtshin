@@ -3,7 +3,8 @@ layout: default
 ---
 {% include breadcrumb.html %}
 {%- assign cat = site.data.categories | where: "name", page.category | first %}
-{%- assign cat_posts = site.guides | where: "category", page.category | sort: "date" | reverse %}
+{% include cat-posts.html cat=cat %}
+{%- assign cat_posts = cat_posts | sort: "date" | reverse %}
 <section class="category-page">
   <header class="article-header category-header">
     <h1 class="article-title"><span class="cat-icon" aria-hidden="true">{{ cat.icon }}</span>{{ page.heading | default: page.category }}</h1>
