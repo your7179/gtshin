@@ -4,7 +4,11 @@
   slug: about-linux-mint
   icon: "📘"
   summary: "Linux Mintの基礎知識、Windowsとの違い、古いPCで使えるかどうか"
+  # Articles with these category values are also listed on this menu page
+  include_categories:
+    - ホーム
   subcategories:
+    - サイト案内
     - 基礎知識
     - 古いPC
     - 選び方・比較
