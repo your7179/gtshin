@@ -65,7 +65,8 @@ no_sidebar: true
   <h2 class="home-heading">カテゴリーから探す</h2>
   <div class="cat-grid">
     {%- for c in site.data.categories %}
-    {%- assign cp = site.guides | where: "category", c.name | sort: "date" | reverse %}
+    {%- include cat-posts.html cat=c %}
+    {%- assign cp = cat_posts | sort: "date" | reverse %}
     <div class="cat-card">
       <a class="cat-card-head" href="{{ c.slug | prepend: '/' | append: '/' | relative_url }}">
         <span class="cat-icon" aria-hidden="true">{{ c.icon }}</span>
