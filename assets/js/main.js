@@ -16,6 +16,84 @@
       });
     }
 
+    // Category cards: 6 per page, numbered pages, subcategory filter
+    var grid = document.getElementById('card-grid');
+    var pager = document.getElementById('pagination');
+    if (grid && pager) {
+      var per = parseInt(grid.getAttribute('data-per-page'), 10) || 6;
+      var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
+      var filterBtns = Array.prototype.slice.call(document.querySelectorAll('.card-filter button'));
+      var params = new URLSearchParams(window.location.search);
+      var state = { page: parseInt(params.get('page'), 10) || 1, sub: params.get('sub') || '' };
+
+      var visibleCards = function () {
+        return cards.filter(function (c) { return !state.sub || c.getAttribute('data-sub') === state.sub; });
+      };
+
+      var makeBtn = function (label, page, opts) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = label;
+        if (opts && opts.current) { b.className = 'is-current'; b.setAttribute('aria-current', 'page'); b.disabled = true; }
+        if (opts && opts.disabled) { b.disabled = true; }
+        if (opts && opts.aria) { b.setAttribute('aria-label', opts.aria); }
+        b.addEventListener('click', function () { state.page = page; render(true); });
+        return b;
+      };
+
+      var render = function (scroll) {
+        var list = visibleCards();
+        var pages = Math.max(1, Math.ceil(list.length / per));
+        if (state.page > pages) { state.page = pages; }
+        if (state.page < 1) { state.page = 1; }
+        cards.forEach(function (c) { c.hidden = true; });
+        list.slice((state.page - 1) * per, state.page * per).forEach(function (c) { c.hidden = false; });
+
+        pager.innerHTML = '';
+        if (pages > 1) {
+          pager.appendChild(makeBtn('‹ 前へ', state.page - 1, { disabled: state.page === 1, aria: '前のページ' }));
+          var last = 0;
+          for (var i = 1; i <= pages; i++) {
+            if (i === 1 || i === pages || Math.abs(i - state.page) <= 2) {
+              if (last && i - last > 1) {
+                var dots = document.createElement('span'); dots.textContent = '…'; pager.appendChild(dots);
+              }
+              pager.appendChild(makeBtn(String(i), i, { current: i === state.page, aria: i + 'ページ目' }));
+              last = i;
+            }
+          }
+          pager.appendChild(makeBtn('次へ ›', state.page + 1, { disabled: state.page === pages, aria: '次のページ' }));
+        }
+        pager.hidden = pages <= 1;
+
+        filterBtns.forEach(function (b) {
+          b.classList.toggle('is-active', b.getAttribute('data-filter') === state.sub);
+        });
+
+        var q = new URLSearchParams();
+        if (state.sub) { q.set('sub', state.sub); }
+        if (state.page > 1) { q.set('page', state.page); }
+        var qs = q.toString();
+        if (window.history && history.replaceState) {
+          history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : ''));
+        }
+        if (scroll) {
+          var top = document.querySelector('.card-filter') || grid;
+          top.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      };
+
+      filterBtns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          state.sub = b.getAttribute('data-filter');
+          state.page = 1;
+          render(false);
+        });
+      });
+
+      render(false);
+    }
+
     var body = document.querySelector('.article-body');
     if (!body) { return; }
 
