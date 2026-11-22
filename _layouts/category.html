@@ -3,7 +3,7 @@ layout: default
 ---
 {% include breadcrumb.html %}
 {%- assign cat = site.data.categories | where: "name", page.category | first %}
-{%- assign cat_posts = site.guides | where: "category", page.category %}
+{%- assign cat_posts = site.guides | where: "category", page.category | sort: "date" | reverse %}
 <section class="category-page">
   <header class="article-header category-header">
     <h1 class="article-title"><span class="cat-icon" aria-hidden="true">{{ cat.icon }}</span>{{ page.heading | default: page.category }}</h1>
@@ -15,30 +15,23 @@ layout: default
   {%- if cat_posts.size == 0 %}
   <p class="empty-note">このカテゴリーの記事は現在準備中です。順番に追加していきますので、しばらくお待ちください。</p>
   {%- else %}
-  <nav class="subcat-nav" aria-label="小分類">
-    <ul>
-      {%- for sub in cat.subcategories %}
-      {%- assign n = cat_posts | where: "subcategory", sub | size %}
-      {%- if n > 0 %}
-      <li><a href="#sub-{{ forloop.index }}">{{ sub }}<span class="count">{{ n }}</span></a></li>
-      {%- endif %}
-      {%- endfor %}
-    </ul>
-  </nav>
+  <div class="card-filter" role="group" aria-label="小分類で絞り込む">
+    <button type="button" class="is-active" data-filter="">すべて<span class="count">{{ cat_posts.size }}</span></button>
+    {%- for sub in cat.subcategories %}
+    {%- assign n = cat_posts | where: "subcategory", sub | size %}
+    {%- if n > 0 %}
+    <button type="button" data-filter="{{ sub }}">{{ sub }}<span class="count">{{ n }}</span></button>
+    {%- endif %}
+    {%- endfor %}
+  </div>
 
-  {%- for sub in cat.subcategories %}
-  {%- assign sp = cat_posts | where: "subcategory", sub | sort: "no" %}
-  {%- if sp.size > 0 %}
-  <section class="subcat" id="sub-{{ forloop.index }}">
-    <h2 class="subcat-title">{{ sub }}</h2>
-    <ul class="post-list">
-      {%- for p in sp %}
-      {% include post-item.html post=p show_desc=true %}
-      {%- endfor %}
-    </ul>
-  </section>
-  {%- endif %}
-  {%- endfor %}
+  <ul class="card-grid" id="card-grid" data-per-page="6">
+    {%- for p in cat_posts %}
+    {% include card.html post=p %}
+    {%- endfor %}
+  </ul>
+
+  <nav class="pagination" id="pagination" aria-label="ページ送り" hidden></nav>
   {%- endif %}
 
   {%- if content != "" %}
