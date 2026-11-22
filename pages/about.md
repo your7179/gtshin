@@ -1,7 +1,7 @@
 ---
 title: "運営者情報"
 permalink: /about/
-description: "「Linux Mint 日本語ガイド」の運営者情報です。韓国の地方自治体で約30年間勤務し、ホームページ制作や情報化に携わってきた運営者のプロフィールと、このサイトを始めた理由をご紹介します。"
+description: "「Linux MintをWindowsのように」の運営者情報です。韓国の地方自治体で約30年間勤務し、ホームページ制作や情報化に携わってきた運営者のプロフィールと、このサイトを始めた理由をご紹介します。"
 updated: 2026-11-22
 ---
 
@@ -9,7 +9,7 @@ updated: 2026-11-22
 
 | 項目 | 内容 |
 |---|---|
-| サイト名 | Linux Mint 日本語ガイド |
+| サイト名 | Linux MintをWindowsのように |
 | URL | https://gtshin.com/ |
 | 運営者 | シン・グァンテ（Shin Gwangtae） |
 | 内容 | 古いPCを無料のOS「Linux Mint」で活用する方法の解説 |

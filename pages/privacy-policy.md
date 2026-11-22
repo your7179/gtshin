@@ -1,11 +1,11 @@
 ---
 title: "プライバシーポリシー"
 permalink: /privacy-policy/
-description: "「Linux Mint 日本語ガイド」のプライバシーポリシーです。個人情報の取り扱い、広告配信（Google AdSense）、アクセス解析（Google アナリティクス）、免責事項、著作権について記載しています。"
+description: "「Linux MintをWindowsのように」のプライバシーポリシーです。個人情報の取り扱い、広告配信（Google AdSense）、アクセス解析（Google アナリティクス）、免責事項、著作権について記載しています。"
 updated: 2026-11-22
 ---
 
-「Linux Mint 日本語ガイド」（以下「当サイト」）における、個人情報の取り扱いなどについて説明します。
+「Linux MintをWindowsのように」（以下「当サイト」）における、個人情報の取り扱いなどについて説明します。
 
 ## 個人情報の利用目的
 
