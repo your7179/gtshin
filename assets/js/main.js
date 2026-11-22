@@ -125,6 +125,19 @@
       toc.hidden = false;
     }
 
+    // Ad right after the table of contents (or before the first heading)
+    var topAd = document.getElementById('ad-after-toc');
+    if (topAd) {
+      var firstH2 = body.querySelector('h2');
+      if (firstH2) {
+        body.insertBefore(topAd, firstH2);
+        topAd.hidden = false;
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } else {
+        topAd.parentNode.removeChild(topAd);
+      }
+    }
+
     // Wrap tables so they can scroll sideways on phones
     var tables = body.querySelectorAll('table');
     for (var t = 0; t < tables.length; t++) {
