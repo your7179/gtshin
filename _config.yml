@@ -1,0 +1,63 @@
+# ------------------------------------------------------------
+# Site settings for gtshin.com (GitHub Pages / Jekyll)
+# ------------------------------------------------------------
+title: "Linux Mint 日本語ガイド"
+tagline: "古いPCをもう一度、使えるように"
+description: "Windows 10サポート終了後の古いPCを、無料のOS「Linux Mint」でよみがえらせる方法を、初心者・シニアの方向けに画像付きでやさしく解説します。インストール手順から日本語入力、トラブル解決まで。"
+lang: ja
+locale: ja_JP
+url: "https://gtshin.com"
+baseurl: ""
+timezone: Asia/Tokyo
+
+author:
+  name: "シン・グァンテ（Shin Gwangtae）"
+  short_name: "シン・グァンテ"
+  bio: "韓国・華川郡で約30年間、地方公務員として勤務。ホームページ制作や情報化の仕事に携わり、ホームページ制作の解説書（韓国語）を出版。古いPCをLinux Mintで活かす方法を日本語で紹介しています。"
+
+# Default image for social sharing (1200x630)
+default_image: /assets/images/ogp.png
+
+# ---- Fill these in later (leave empty until you have them) ----
+google_analytics: ""          # GA4 ID, e.g. "G-XXXXXXXXXX"
+adsense_client: ""            # AdSense ID, e.g. "ca-pub-1234567890123456"
+google_site_verification: ""  # Search Console meta-tag code (optional)
+bing_site_verification: ""    # Bing Webmaster Tools meta-tag code (optional)
+
+# ---- Articles ----
+# Put article files in the _guides folder.
+# File name rule: 044-linux-mint-install-guide.md
+# URL becomes:   https://gtshin.com/guide/044-linux-mint-install-guide/
+collections:
+  guides:
+    output: true
+    permalink: /guide/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: guides
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - _templates
+  - Gemfile
+  - Gemfile.lock
+  - vendor

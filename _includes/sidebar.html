@@ -1,0 +1,37 @@
+<aside class="sidebar" aria-label="サイドバー">
+  <section class="side-box side-profile">
+    <p class="side-title">運営者</p>
+    <img class="author-avatar" src="{{ '/assets/images/author.jpg' | relative_url }}" alt="{{ site.author.short_name }}" width="64" height="64">
+    <p class="author-name">{{ site.author.short_name }}</p>
+    <p class="side-text">韓国在住。地方自治体で約30年間勤務し、ホームページ制作や情報化に携わってきました。お隣の国・日本の皆さまに、Linux Mintの使い方をやさしくお伝えします。</p>
+    <p class="side-more"><a href="{{ '/about/' | relative_url }}">運営者情報</a></p>
+  </section>
+
+  <section class="side-box side-start">
+    <p class="side-title">はじめての方へ</p>
+    <p class="side-text">何から読めばよいか迷ったら、5つのステップの順番にお読みください。</p>
+    <p class="side-more"><a href="{{ '/#roadmap' | relative_url }}">読む順番を見る</a></p>
+  </section>
+
+  <section class="side-box">
+    <p class="side-title">カテゴリー</p>
+    <ul class="side-cats">
+      {%- for c in site.data.categories %}
+      {%- assign n = site.guides | where: "category", c.name | size %}
+      <li><a href="{{ c.slug | prepend: '/' | append: '/' | relative_url }}"><span>{{ c.name }}</span><span class="count">{{ n }}</span></a></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  {%- assign side_latest = site.guides | sort: "date" | reverse %}
+  {%- if side_latest.size > 0 %}
+  <section class="side-box">
+    <p class="side-title">新着記事</p>
+    <ul class="side-posts">
+      {%- for p in side_latest limit: 5 %}
+      <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+</aside>

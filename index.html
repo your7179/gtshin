@@ -1,0 +1,118 @@
+---
+layout: default
+title: "Linux Mint 日本語ガイド"
+no_sidebar: true
+---
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Windows 10サポート終了後の古いPCに</p>
+    <h1 class="hero-title">古いPCを、<br class="sp-only">Linux Mintでもう一度。</h1>
+    <p class="hero-text">まだ動くPCを、そのまま眠らせていませんか。このサイトでは、無料のOS「Linux Mint（リナックスミント）」を使って古いPCをもう一度活用する方法を、初心者やシニアの方にもわかるよう、画像付きでやさしく解説します。</p>
+    <div class="hero-buttons">
+      <a class="btn btn-primary" href="#roadmap">はじめての方へ</a>
+      <a class="btn btn-secondary" href="{{ '/install/' | relative_url }}">インストール方法を見る</a>
+    </div>
+  </div>
+</section>
+
+<section class="home-section" id="roadmap">
+  <h2 class="home-heading">はじめての方へ：5つのステップ</h2>
+  <p class="home-lead">上から順番に読み進めれば、Linux Mintのことを知るところから、毎日使えるようになるまでたどり着けます。</p>
+  <ol class="roadmap">
+    <li>
+      <a href="{{ '/about-linux-mint/' | relative_url }}">
+        <span class="roadmap-step">STEP 1</span>
+        <span class="roadmap-title">知る</span>
+        <span class="roadmap-text">Linux Mintとは何か、自分のPCで使えるかを確かめます。</span>
+      </a>
+    </li>
+    <li>
+      <a href="{{ '/install/#sub-1' | relative_url }}">
+        <span class="roadmap-step">STEP 2</span>
+        <span class="roadmap-title">準備する</span>
+        <span class="roadmap-text">データのバックアップと、インストール用USBを用意します。</span>
+      </a>
+    </li>
+    <li>
+      <a href="{{ '/install/' | relative_url }}">
+        <span class="roadmap-step">STEP 3</span>
+        <span class="roadmap-title">インストールする</span>
+        <span class="roadmap-text">画面を見ながら、一つずつ手順どおりに進めます。</span>
+      </a>
+    </li>
+    <li>
+      <a href="{{ '/howto/' | relative_url }}">
+        <span class="roadmap-step">STEP 4</span>
+        <span class="roadmap-title">使いこなす</span>
+        <span class="roadmap-text">日本語入力、ソフト、プリンターなどを設定します。</span>
+      </a>
+    </li>
+    <li>
+      <a href="{{ '/trouble/' | relative_url }}">
+        <span class="roadmap-step">STEP 5</span>
+        <span class="roadmap-title">困ったときは</span>
+        <span class="roadmap-text">よくあるトラブルの原因と解決方法を調べます。</span>
+      </a>
+    </li>
+  </ol>
+</section>
+
+<section class="home-section">
+  <h2 class="home-heading">カテゴリーから探す</h2>
+  <div class="cat-grid">
+    {%- for c in site.data.categories %}
+    {%- assign cp = site.guides | where: "category", c.name | sort: "date" | reverse %}
+    <div class="cat-card">
+      <a class="cat-card-head" href="{{ c.slug | prepend: '/' | append: '/' | relative_url }}">
+        <span class="cat-icon" aria-hidden="true">{{ c.icon }}</span>
+        <span class="cat-card-name">{{ c.name }}</span>
+      </a>
+      <p class="cat-card-summary">{{ c.summary }}</p>
+      {%- if cp.size > 0 %}
+      <ul class="cat-card-list">
+        {%- for p in cp limit: 3 %}
+        <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+      <p class="cat-card-more"><a href="{{ c.slug | prepend: '/' | append: '/' | relative_url }}">記事一覧（{{ cp.size }}件）</a></p>
+    </div>
+    {%- endfor %}
+  </div>
+</section>
+
+{%- assign latest = site.guides | sort: "date" | reverse %}
+{%- if latest.size > 0 %}
+<section class="home-section">
+  <h2 class="home-heading">新着記事</h2>
+  <ul class="post-list">
+    {%- for p in latest limit: 10 %}
+    {% include post-item.html post=p show_cat=true show_desc=true %}
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
+
+{%- assign guide_posts = site.guides | where: "category", "ホーム" | sort: "no" %}
+{%- if guide_posts.size > 0 %}
+<section class="home-section">
+  <h2 class="home-heading">サイト案内</h2>
+  <ul class="post-list">
+    {%- for p in guide_posts %}
+    {% include post-item.html post=p %}
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
+
+<section class="home-section">
+  <div class="owner-message">
+    <img class="author-avatar" src="{{ '/assets/images/author.jpg' | relative_url }}" alt="{{ site.author.short_name }}" width="88" height="88">
+    <div>
+      <h2 class="owner-title">運営者より</h2>
+      <p>はじめまして。韓国の江原道・華川（ファチョン）に住む、シン・グァンテと申します。韓国の地方自治体で約30年間、公務員として働き、自治体のホームページ制作や情報化の仕事に携わってきました。</p>
+      <p>Windows 10のサポート終了をきっかけに、まだ使える古いPCをLinux Mintで活かす方法を調べ、韓国語で本を書いています。お隣の国・日本でも同じことでお困りの方が多いと知り、少しでもお役に立てればと思い、このサイトを始めました。</p>
+      <p class="owner-link"><a href="{{ '/about/' | relative_url }}">運営者情報を詳しく見る</a></p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+---
+layout: page
+title: "ページが見つかりません"
+permalink: /404.html
+noindex: true
+no_ads: true
+sitemap: false
+---
+<p>お探しのページは、移動または削除されたか、URLが間違っている可能性があります。</p>
+<p>お手数ですが、<a href="{{ '/' | relative_url }}">ホーム</a>または下のカテゴリーからお探しください。</p>
+<ul>
+  {%- for c in site.data.categories %}
+  <li><a href="{{ c.slug | prepend: '/' | append: '/' | relative_url }}">{{ c.name }}</a></li>
+  {%- endfor %}
+</ul>

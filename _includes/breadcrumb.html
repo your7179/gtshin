@@ -1,0 +1,14 @@
+{%- if page.url != "/" -%}
+<nav class="breadcrumb" aria-label="パンくずリスト">
+  <ol>
+    <li><a href="{{ '/' | relative_url }}">ホーム</a></li>
+    {%- if page.layout == "post" -%}
+      {%- assign bc_cat = site.data.categories | where: "name", page.category | first -%}
+      {%- if bc_cat %}
+    <li><a href="{{ bc_cat.slug | prepend: '/' | append: '/' | relative_url }}">{{ bc_cat.name }}</a></li>
+      {%- endif %}
+    {%- endif %}
+    <li aria-current="page">{{ page.heading | default: page.title }}</li>
+  </ol>
+</nav>
+{%- endif -%}
