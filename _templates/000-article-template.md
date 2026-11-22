@@ -39,6 +39,8 @@ sudo apt update
 
 キーは <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> のように書けます。
 
+{% include ad.html %}
+
 ## 2. 次の手順
 
 本文。
