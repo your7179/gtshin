@@ -17,7 +17,8 @@
     <p class="side-title">カテゴリー</p>
     <ul class="side-cats">
       {%- for c in site.data.categories %}
-      {%- assign n = site.guides | where: "category", c.name | size %}
+      {%- include cat-posts.html cat=c %}
+      {%- assign n = cat_posts | size %}
       <li><a href="{{ c.slug | prepend: '/' | append: '/' | relative_url }}"><span>{{ c.name }}</span><span class="count">{{ n }}</span></a></li>
       {%- endfor %}
     </ul>

@@ -13,12 +13,15 @@
     </button>
   </div>
   <nav id="global-nav" class="global-nav" aria-label="メインメニュー">
+    {%- if page.layout == "post" %}{% include post-cat.html %}{% endif %}
     <ul class="container global-nav-list">
       {%- for item in site.data.navigation.main %}
       {%- assign active = false -%}
       {%- if item.url == "/" -%}
         {%- if page.url == "/" -%}{%- assign active = true -%}{%- endif -%}
       {%- elsif page.url == item.url or page.category == item.title -%}
+        {%- assign active = true -%}
+      {%- elsif page.layout == "post" and post_cat and post_cat.name == item.title -%}
         {%- assign active = true -%}
       {%- endif %}
       <li><a href="{{ item.url | relative_url }}"{% if active %} class="is-active" aria-current="page"{% endif %}>{{ item.title }}</a></li>

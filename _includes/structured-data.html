@@ -18,7 +18,8 @@
 }
 </script>
 {%- elsif page.layout == "post" -%}
-{%- assign sd_cat = site.data.categories | where: "name", page.category | first -%}
+{%- include post-cat.html -%}
+{%- assign sd_cat = post_cat -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
