@@ -80,7 +80,7 @@ img { max-width: 100%; height: auto; }
 .breadcrumb a { color: var(--text-sub); }
 
 /* ---------- Article ---------- */
-.article, .category-page { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 36px 40px 40px; }
+.article { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 36px 40px 40px; }
 .article-header { margin-bottom: 24px; }
 .article-labels { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
 .label { display: inline-block; font-size: .8rem; line-height: 1.6; padding: 2px 12px; border-radius: 999px; text-decoration: none; }
@@ -279,6 +279,43 @@ img { max-width: 100%; height: auto; }
 .footer-bottom p { margin: 2px 0; }
 
 /* ---------- Responsive ---------- */
+/* ---------- Category cards ---------- */
+.category-page { min-width: 0; }
+.category-header { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 30px 36px; margin-bottom: 20px; border-bottom: 0; }
+.card-filter { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; }
+.card-filter button {
+  font: inherit; font-size: .9rem; line-height: 1.6; cursor: pointer; padding: 5px 16px; border-radius: 999px;
+  border: 1px solid var(--mint); background: var(--white); color: var(--mint-dark);
+}
+.card-filter button:hover { background: var(--mint-light); }
+.card-filter button.is-active { background: var(--mint); color: #fff; }
+.card-filter .count { font-size: .75rem; margin-left: 6px; opacity: .85; }
+.card-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.card[hidden] { display: none; }
+.card a {
+  display: flex; flex-direction: column; height: 100%; background: var(--white); color: var(--text); text-decoration: none;
+  border: 1px solid var(--border); border-top: 4px solid var(--mint); padding: 26px 28px 24px;
+  box-shadow: var(--shadow); transition: box-shadow .2s, transform .2s;
+}
+.card a:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, .1); transform: translateY(-2px); }
+.card-meta { margin: 0 0 10px; font-size: .88rem; font-weight: 700; color: var(--mint-dark); }
+.card-title { margin: 0 0 10px; font-size: 1.22rem; line-height: 1.6; color: var(--text); }
+.card a:hover .card-title { color: var(--mint-dark); }
+.card-desc {
+  margin: 0; font-size: .93rem; line-height: 1.8; color: var(--text-sub);
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.pagination { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; margin: 32px 0 8px; }
+.pagination button, .pagination span {
+  font: inherit; min-width: 44px; height: 44px; padding: 0 12px; border-radius: 22px; font-size: .95rem;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.pagination button { cursor: pointer; border: 1px solid var(--border); background: var(--white); color: var(--text); }
+.pagination button:hover { border-color: var(--mint); color: var(--mint-dark); }
+.pagination button.is-current { background: var(--mint); border-color: var(--mint); color: #fff; font-weight: 700; cursor: default; }
+.pagination button:disabled:not(.is-current) { opacity: .4; cursor: default; }
+.pagination span { color: #999; min-width: 24px; padding: 0; }
+
 @media (max-width: 1000px) {
   .layout { grid-template-columns: minmax(0, 1fr); }
   .roadmap { grid-template-columns: repeat(2, 1fr); }
@@ -309,7 +346,10 @@ img { max-width: 100%; height: auto; }
   .global-nav-list a { text-align: left; padding: 13px 20px; border-bottom: 1px solid rgba(255, 255, 255, .15); }
 
   .layout { padding-top: 14px; gap: 24px; }
-  .article, .category-page { padding: 22px 18px 28px; border-radius: 8px; }
+  .article { padding: 22px 18px 28px; border-radius: 8px; }
+  .category-header { padding: 22px 18px; }
+  .card-grid { grid-template-columns: 1fr; gap: 16px; }
+  .card a { padding: 20px 20px 18px; }
   .article-title { font-size: 1.4rem; }
   .article-body h2 { font-size: 1.22rem; padding: 10px 12px; }
   .article-body h3 { font-size: 1.1rem; }
