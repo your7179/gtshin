@@ -57,6 +57,10 @@ no_sidebar: true
   </ol>
 </section>
 
+<div class="home-ad">
+{% include ad.html type="display" %}
+</div>
+
 <section class="home-section">
   <h2 class="home-heading">カテゴリーから探す</h2>
   <div class="cat-grid">
@@ -81,6 +85,10 @@ no_sidebar: true
   </div>
 </section>
 
+<div class="home-ad">
+{% include ad.html type="display" %}
+</div>
+
 {%- assign latest = site.guides | sort: "date" | reverse %}
 {%- if latest.size > 0 %}
 <section class="home-section">
@@ -104,6 +112,10 @@ no_sidebar: true
   </ul>
 </section>
 {%- endif %}
+
+<div class="home-ad">
+{% include ad.html type="multiplex" %}
+</div>
 
 <section class="home-section">
   <div class="owner-message">

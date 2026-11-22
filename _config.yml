@@ -21,6 +21,11 @@ default_image: /assets/images/ogp.png
 # ---- Fill these in later (leave empty until you have them) ----
 google_analytics: ""          # GA4 ID, e.g. "G-XXXXXXXXXX"
 adsense_client: "ca-pub-7561835518208341"  # AdSense publisher ID
+# Manual ad units (AdSense > Ads > By ad unit)
+ad_slots:
+  display: "1064579233"      # Display ad (responsive) - home page
+  in_article: "2265980266"   # In-article ad - inside articles
+  multiplex: "9851332955"    # Multiplex ad - end of articles / home
 google_site_verification: ""  # Search Console meta-tag code (optional)
 bing_site_verification: ""    # Bing Webmaster Tools meta-tag code (optional)
 
