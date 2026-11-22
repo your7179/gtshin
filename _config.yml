@@ -20,7 +20,7 @@ default_image: /assets/images/ogp.png
 
 # ---- Fill these in later (leave empty until you have them) ----
 google_analytics: ""          # GA4 ID, e.g. "G-XXXXXXXXXX"
-adsense_client: ""            # AdSense ID, e.g. "ca-pub-1234567890123456"
+adsense_client: "ca-pub-7561835518208341"  # AdSense publisher ID
 google_site_verification: ""  # Search Console meta-tag code (optional)
 bing_site_verification: ""    # Bing Webmaster Tools meta-tag code (optional)
 
