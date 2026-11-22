@@ -156,6 +156,13 @@ img { max-width: 100%; height: auto; }
 .article-body .warning { background: var(--warn-bg); border: 2px solid #e8a39b; }
 .article-body .warning::before { content: "注意"; color: var(--warn); }
 
+/* ---------- Ads ---------- */
+.ad-box { margin: 2.4em 0; text-align: center; clear: both; }
+.ad-box[hidden] { display: none; }
+.article-body .ad-box .ad-label, .ad-label { margin: 0 0 6px; font-size: .75rem; line-height: 1.4; color: #999; letter-spacing: .12em; text-align: center; }
+.home-ad { margin-top: 40px; }
+.home-ad .ad-box { margin: 0; }
+
 /* ---------- Author box ---------- */
 .author-box { margin-top: 48px; border: 2px solid var(--mint-light); border-radius: var(--radius); padding: 20px 24px; background: var(--mint-pale); }
 .author-box-label { margin: 0 0 10px; font-size: .85rem; font-weight: 700; color: var(--mint-dark); }
