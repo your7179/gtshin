@@ -173,6 +173,7 @@ img { max-width: 100%; height: auto; }
 .author-name { margin: 0 0 4px; font-weight: 700; }
 .author-bio { margin: 0 0 6px; font-size: .92rem; line-height: 1.8; }
 .author-link { margin: 0; font-size: .9rem; }
+.link-sep { color: #bbb; margin: 0 6px; }
 
 /* ---------- Post lists ---------- */
 .post-list { list-style: none; margin: 0; padding: 0; }
