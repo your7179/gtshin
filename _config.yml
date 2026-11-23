@@ -13,6 +13,7 @@ timezone: Asia/Tokyo
 author:
   name: "シン・グァンテ（Shin Gwangtae）"
   short_name: "シン・グァンテ"
+  x: "you7179me"              # X (Twitter) account, without @
   bio: "韓国・華川郡で約30年間、地方公務員として勤務。ホームページ制作や情報化の仕事に携わり、ホームページ制作の解説書（韓国語）を出版。古いPCをLinux Mintで活かす方法を日本語で紹介しています。"
 
 # Default image for social sharing (1200x630)
