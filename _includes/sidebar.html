@@ -4,7 +4,7 @@
     <img class="author-avatar" src="{{ '/assets/images/author.jpg' | relative_url }}" alt="{{ site.author.short_name }}" width="64" height="64">
     <p class="author-name">{{ site.author.short_name }}</p>
     <p class="side-text">韓国在住。地方自治体で約30年間勤務し、ホームページ制作や情報化に携わってきました。お隣の国・日本の皆さまに、Linux Mintの使い方をやさしくお伝えします。</p>
-    <p class="side-more"><a href="{{ '/about/' | relative_url }}">運営者情報</a></p>
+    <p class="side-more">{% if site.author.x %}<a href="https://x.com/{{ site.author.x }}" target="_blank" rel="noopener me">Xでフォロー</a><span class="link-sep">｜</span>{% endif %}<a href="{{ '/about/' | relative_url }}">運営者情報</a></p>
   </section>
 
   <section class="side-box side-start">

@@ -5,7 +5,7 @@
     <div>
       <p class="author-name">{{ site.author.name }}</p>
       <p class="author-bio">{{ site.author.bio }}</p>
-      <p class="author-link"><a href="{{ '/about/' | relative_url }}">運営者情報を見る</a></p>
+      <p class="author-link"><a href="{{ '/about/' | relative_url }}">運営者情報を見る</a>{% if site.author.x %}<span class="link-sep">｜</span><a href="https://x.com/{{ site.author.x }}" target="_blank" rel="noopener me">X（@{{ site.author.x }}）</a>{% endif %}</p>
     </div>
   </div>
 </aside>
