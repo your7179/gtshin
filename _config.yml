@@ -26,7 +26,7 @@ ad_slots:
   display: "1064579233"      # Display ad (responsive) - home page
   in_article: "2265980266"   # In-article ad - inside articles
   multiplex: "9851332955"    # Multiplex ad - end of articles / home
-google_site_verification: ""  # Search Console meta-tag code (optional)
+google_site_verification: "M5gxKFuRvjVUrt5J4s_g4gCj1G0KmlwKiuCENJz7Goo"  # Search Console meta-tag code
 bing_site_verification: ""    # Bing Webmaster Tools meta-tag code (optional)
 
 # ---- Articles ----
