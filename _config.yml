@@ -22,6 +22,12 @@ social:
   links:
     - https://x.com/you7179me
 
+# 검색엔진 소유 확인 (운영자 메모)
+# 서치콘솔·빙에서 받은 메타태그의 content 값을 넣고, 아래 3줄 맨 앞의 # 을 지운다
+# webmaster_verifications:
+#   google: "ここにGoogleのコード"
+#   bing: "ここにBingのコード"
+
 # カテゴリ名(表示用)
 category_names:
   hannya: "暮らしの中の般若心経"
@@ -56,11 +62,13 @@ defaults:
       type: posts
     values:
       layout: post
+      image: /images/hero-parho.jpg   # 記事にimageがない時の代わり
   - scope:
       path: ""
       type: pages
     values:
       layout: page
+      image: /images/hero-parho.jpg   # SNS共有・検索用の代表画像
 
 exclude:
   - README.md
