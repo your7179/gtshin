@@ -43,6 +43,9 @@ google_analytics: ""
 # 記事のURL: https://gtshin.com/hannya/hannya-01/
 permalink: /:categories/:slug/
 
+# 날짜·시각이 아직 오지 않은 글도 바로 공개 (운영자 메모)
+future: true
+
 markdown: kramdown
 kramdown:
   input: GFM
