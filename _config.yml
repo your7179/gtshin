@@ -28,6 +28,9 @@ category_names:
   kannon: "私が出会った観音さま"
   korea: "韓国のはなし"
 
+# Googleアドセンス パブリッシャーID(空にすると広告はすべて非表示)
+google_adsense: "ca-pub-7561835518208341"
+
 # Googleアナリティクスを使う場合は測定ID(G-XXXXXXX)を入れる
 google_analytics: ""
 

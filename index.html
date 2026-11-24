@@ -43,7 +43,11 @@ description: "暮らしの中の般若心経と、毎日出会う観音さまの
     </a>
   </div>
 
+  {% include ad.html type="display" %}
+
   <h2 class="section-heading">新しいお話</h2>
   {% assign latest = site.posts | slice: 0, 10 %}
   {% include post-list.html posts=latest %}
+
+  {% include ad.html type="multiplex" %}
 </div>
