@@ -1,0 +1,15 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-title" href="{{ '/' | relative_url }}">
+      <span class="site-title-main">暮らしの中の般若心経</span>
+      <span class="site-title-sub">毎日出会う観音さま</span>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="メニューを開く">
+    <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true"><span></span></label>
+    <nav class="site-nav" aria-label="メインメニュー">
+      <a href="{{ '/hannya/' | relative_url }}"{% if page.url contains '/hannya/' %} class="active"{% endif %}>暮らしの中の般若心経</a>
+      <a href="{{ '/kannon/' | relative_url }}"{% if page.url contains '/kannon/' %} class="active"{% endif %}>私が出会った観音さま</a>
+      <a href="{{ '/korea/' | relative_url }}"{% if page.url contains '/korea/' %} class="active"{% endif %}>韓国のはなし</a>
+    </nav>
+  </div>
+</header>

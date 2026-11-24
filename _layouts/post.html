@@ -1,0 +1,62 @@
+---
+layout: default
+---
+{% assign cat = page.categories | first %}
+<article class="post container" itemscope itemtype="https://schema.org/BlogPosting">
+  <nav class="breadcrumb" aria-label="パンくずリスト">
+    <a href="{{ '/' | relative_url }}">ホーム</a> ›
+    <a href="{{ '/' | append: cat | append: '/' | relative_url }}">{{ site.category_names[cat] | default: cat }}</a>
+  </nav>
+
+  <header class="post-header">
+    <a class="cat-label" href="{{ '/' | append: cat | append: '/' | relative_url }}">{{ site.category_names[cat] | default: cat }}</a>
+    <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%Y年%-m月%-d日" }}</time>
+      ・ 文：辛光泰（シン・グァンテ）
+    </p>
+  </header>
+
+  <div class="post-content prose" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% if page.tags.size > 0 %}
+  <ul class="post-tags">
+    {% for tag in page.tags %}<li>#{{ tag }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+
+  <div class="share">
+    <a class="btn" href="https://x.com/intent/post?text={{ page.title | url_encode }}&url={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener">X でシェアする</a>
+  </div>
+
+  {% comment %} 同じカテゴリの前後の記事 {% endcomment %}
+  {% assign cat_posts = site.categories[cat] | reverse %}
+  {% for p in cat_posts %}
+    {% if p.url == page.url %}
+      {% assign idx = forloop.index0 %}
+    {% endif %}
+  {% endfor %}
+  {% assign prev_idx = idx | minus: 1 %}
+  {% assign next_idx = idx | plus: 1 %}
+  <nav class="post-nav" aria-label="前後の記事">
+    {% if idx and idx > 0 %}
+      {% assign prev = cat_posts[prev_idx] %}
+      <a class="post-nav-prev" href="{{ prev.url | relative_url }}"><span>← 前の記事</span>{{ prev.title }}</a>
+    {% else %}<span></span>{% endif %}
+    {% if cat_posts[next_idx] %}
+      {% assign next = cat_posts[next_idx] %}
+      <a class="post-nav-next" href="{{ next.url | relative_url }}"><span>次の記事 →</span>{{ next.title }}</a>
+    {% endif %}
+  </nav>
+
+  <aside class="author-box">
+    <img src="{{ '/images/profile.png' | relative_url }}" alt="辛光泰のイラスト" width="88" height="88" loading="lazy">
+    <div>
+      <p class="author-name">辛光泰（シン・グァンテ）</p>
+      <p>韓国・江原道華川（ファチョン）在住の物書き。元地方公務員。暮らしの中で出会う般若心経と観音さまの話を、日本の皆さまにお届けしています。</p>
+      <a href="{{ '/about/' | relative_url }}">運営者について →</a>
+    </div>
+  </aside>
+</article>

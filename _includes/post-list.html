@@ -1,0 +1,21 @@
+{% comment %} 記事一覧。include.posts に記事の配列を渡す {% endcomment %}
+{% if include.posts and include.posts.size > 0 %}
+<ul class="post-list">
+  {% for post in include.posts %}
+  {% assign cat = post.categories | first %}
+  <li class="post-card">
+    <a href="{{ post.url | relative_url }}">
+      {% if post.image %}<img class="post-card-thumb" src="{{ post.image | relative_url }}" alt="" loading="lazy">{% endif %}
+      <div class="post-card-body">
+        <span class="cat-label">{{ site.category_names[cat] | default: cat }}</span>
+        <h3 class="post-card-title">{{ post.title }}</h3>
+        <p class="post-card-desc">{{ post.description | default: post.excerpt | strip_html | truncate: 90 }}</p>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y年%-m月%-d日" }}</time>
+      </div>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="empty-note">記事は準備中です。もうしばらくお待ちください。</p>
+{% endif %}

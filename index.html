@@ -1,0 +1,49 @@
+---
+layout: default
+title: "暮らしの中の般若心経、毎日出会う観音さま"
+description: "暮らしの中の般若心経と、毎日出会う観音さまのお話。心をひと休みさせる、一日一編。"
+---
+<section class="hero">
+  <div class="ensou" aria-hidden="true"></div>
+  <h1 class="hero-title">
+    <span>暮らしの中の般若心経、</span>
+    <span>毎日出会う観音さま</span>
+  </h1>
+  <p class="hero-desc">暮らしの中の般若心経と、毎日出会う観音さまのお話。<br>心をひと休みさせる、一日一編。</p>
+</section>
+
+<div class="container">
+  <section class="letter">
+    <h2>日本の皆さまへの手紙</h2>
+    <p>はじめまして。韓国・江原道（カンウォンド）の華川（ファチョン）という山あいの町で暮らしている、辛光泰（シン・グァンテ）と申します。</p>
+    <p>般若心経は、わずか二百数十文字の短いお経です。けれどもその短い言葉の中には、心配ごとや執着をそっと手放すための智慧が、ぎっしりと詰まっています。</p>
+    <p>このサイトでは、難しい教えの解説ではなく、市場や台所、バス停や病院の待合室といった、毎日の暮らしの中の小さな出来事を通して、般若心経の言葉をお届けします。</p>
+    <p>観音さまは、お寺の中だけにいらっしゃるのではありません。今日、私にきつい言葉を投げかけたあの人でさえ、私の心を目覚めさせてくれる観音さまなのかもしれない――そんな気づきを、一つひとつ書きとめていきます。</p>
+    <p>また、韓国の農村の四季の暮らしや、私のふるさと華川の見どころも、ときどきご紹介します。</p>
+    <p>これは、韓国・華川に住む一人の物書きが、海の向こうの日本の皆さまへお送りする「心の手紙」です。お茶を一杯いれるような気持ちで、一日一編、気軽にお読みいただければうれしく思います。</p>
+    <p class="sign">韓国・華川にて　辛光泰</p>
+  </section>
+
+  <h2 class="section-heading">三つのお話</h2>
+  <div class="menu-cards">
+    <a class="menu-card" href="{{ '/hannya/' | relative_url }}">
+      <h3>暮らしの中の般若心経</h3>
+      <p>怒り、不安、別れ、老い。日々の悩みに、般若心経の一句一句をそっと重ねて読みます。</p>
+      <span class="more">読む →</span>
+    </a>
+    <a class="menu-card" href="{{ '/kannon/' | relative_url }}">
+      <h3>私が出会った観音さま</h3>
+      <p>乱暴な一言、割り込み、家族のすれ違い。困った人の顔をして現れる観音さまのお話です。</p>
+      <span class="more">読む →</span>
+    </a>
+    <a class="menu-card" href="{{ '/korea/' | relative_url }}">
+      <h3>韓国のはなし</h3>
+      <p>キムジャン（キムチ漬け）や味噌づくりなど農村の暮らしと、華川の旅のご案内。</p>
+      <span class="more">読む →</span>
+    </a>
+  </div>
+
+  <h2 class="section-heading">新しいお話</h2>
+  {% assign latest = site.posts | slice: 0, 10 %}
+  {% include post-list.html posts=latest %}
+</div>

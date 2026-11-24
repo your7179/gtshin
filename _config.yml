@@ -1,0 +1,66 @@
+# ===== サイト基本設定 (gtshin.com) =====
+title: "暮らしの中の般若心経、毎日出会う観音さま"
+description: "暮らしの中の般若心経と、毎日出会う観音さまのお話。心をひと休みさせる、一日一編。"
+url: "https://gtshin.com"
+baseurl: ""
+lang: ja
+locale: ja_JP
+timezone: Asia/Seoul
+
+author:
+  name: "辛光泰 (Shin Gwangtae)"
+  email: "naul2@naver.com"
+  x: "https://x.com/you7179me"
+
+# SEO(jekyll-seo-tag)用
+twitter:
+  username: you7179me
+  card: summary_large_image
+logo: /images/profile.png
+social:
+  name: "辛光泰"
+  links:
+    - https://x.com/you7179me
+
+# カテゴリ名(表示用)
+category_names:
+  hannya: "暮らしの中の般若心経"
+  kannon: "私が出会った観音さま"
+  korea: "韓国のはなし"
+
+# Googleアナリティクスを使う場合は測定ID(G-XXXXXXX)を入れる
+google_analytics: ""
+
+# 記事のURL: https://gtshin.com/hannya/hannya-01/
+permalink: /:categories/:slug/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+feed:
+  path: feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
