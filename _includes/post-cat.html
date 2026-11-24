@@ -1,9 +1,0 @@
-{%- comment -%} Sets post_cat: the menu category this page belongs to {%- endcomment -%}
-{%- assign post_cat = nil -%}
-{%- if page.category -%}
-{%- for c in site.data.categories -%}
-{%- if c.name == page.category or c.include_categories contains page.category -%}
-{%- assign post_cat = c -%}
-{%- endif -%}
-{%- endfor -%}
-{%- endif -%}

@@ -1,6 +1,0 @@
-{%- comment -%} Sets cat_posts: all articles of include.cat (including include_categories) {%- endcomment -%}
-{%- assign cat_posts = site.guides | where: "category", include.cat.name -%}
-{%- for extra in include.cat.include_categories -%}
-{%- assign more_posts = site.guides | where: "category", extra -%}
-{%- assign cat_posts = cat_posts | concat: more_posts -%}
-{%- endfor -%}
