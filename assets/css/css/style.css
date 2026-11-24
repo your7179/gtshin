@@ -88,6 +88,15 @@ a:hover { color: var(--shu); }
 }
 
 /* ---------- トップページ ---------- */
+.hero-photo { margin: 0; position: relative; background: var(--ai); }
+.hero-photo img {
+  width: 100%; height: auto; max-height: 520px; object-fit: cover; object-position: center 60%;
+}
+.hero-photo figcaption {
+  position: absolute; right: 12px; bottom: 10px;
+  font-family: var(--sans); font-size: .72rem; letter-spacing: .05em; line-height: 1.5;
+  color: #fff; background: rgba(46,43,40,.55); padding: 3px 10px; border-radius: 2px;
+}
 .hero {
   text-align: center;
   padding: 56px 20px 40px;
