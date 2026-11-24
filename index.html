@@ -37,7 +37,7 @@ description: "暮らしの中の般若心経と、毎日出会う観音さまの
       <span class="more">読む →</span>
     </a>
     <a class="menu-card" href="{{ '/korea/' | relative_url }}">
-      <h3>韓国のはなし</h3>
+      <h3>韓国の話</h3>
       <p>キムジャン（キムチ漬け）や味噌づくりなど農村の暮らしと、華川の旅のご案内。</p>
       <span class="more">読む →</span>
     </a>
@@ -48,6 +48,4 @@ description: "暮らしの中の般若心経と、毎日出会う観音さまの
   <h2 class="section-heading">新しいお話</h2>
   {% assign latest = site.posts | slice: 0, 10 %}
   {% include post-list.html posts=latest %}
-
-  {% include ad.html type="multiplex" %}
 </div>
