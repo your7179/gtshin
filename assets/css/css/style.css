@@ -97,6 +97,18 @@ a:hover { color: var(--shu); }
   font-family: var(--sans); font-size: .72rem; letter-spacing: .05em; line-height: 1.5;
   color: #fff; background: rgba(46,43,40,.55); padding: 3px 10px; border-radius: 2px;
 }
+/* PC: 写真を中央にまとめ、高さを抑える */
+@media (min-width: 900px) {
+  .hero-photo {
+    max-width: var(--wide); margin: 32px auto 0; padding: 0 20px;
+    background: none;
+  }
+  .hero-photo img {
+    height: 400px; max-height: none; border-radius: 4px;
+    box-shadow: 0 4px 18px rgba(46,43,40,.12);
+  }
+  .hero-photo figcaption { right: 32px; bottom: 12px; }
+}
 .hero {
   text-align: center;
   padding: 56px 20px 40px;
